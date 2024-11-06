@@ -1,0 +1,11 @@
+import {Link} from "react-router-dom";
+
+
+import {useState} from "react";
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+      setMenuOpen(!menuOpen);
+  }
+<button onClick={toggleMenu}>Toggle</button>

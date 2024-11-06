@@ -1,0 +1,47 @@
+:root {
+  --main-bg: linear-gradient(#52ba5d, #fff);
+  --footer: linear-gradient(#fff, #52ba5d);
+  --content: #fff;
+  --complement: #52ba5d;
+  --highlight: #fff200;
+  --standard: #000;
+}
+
+#main-content {
+  width: 98.6%;
+}
+/*images*/
+.content-img {
+  display: block;
+  margin: auto;
+  width: 400px;
+}
+#bottom-img {
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+
+/* typography */
+#main-content h1 {
+  color: var(--complement);
+  text-align: center;
+}
+#main-content h2 {
+  background-color: var(--complement);
+  color: var(--highlight);
+  padding: 5px;
+}
+#main-content p {
+  background-color: transparent;
+  color: var(--standard);
+  padding: 10px;
+}
+
+
+@media only screen and (min-width: 900px) {
+  #bottom-img {
+    width: auto;
+  }
+}
+
