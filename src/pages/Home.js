@@ -2,8 +2,24 @@ import "../css/Home.css";
 import courseOne from '../images/course1.jpg';
 import donate from '../images/btn_donateCC_LG.gif';
 import bottomGif from '../images/bottom-img.gif';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Events from "../components/Events";
 
 const Home = () => {
+
+  const [events, setEvents] = useState([]);
+
+  //useEffect “delays” a piece of code from running until that render is reflected on the screen.
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get(
+        "https://cga-backend.onrender.com/api/events"
+      );
+      setEvents(response.data);
+    })();
+  }, []);
+
   return (
     <div id="main-content">
                   
@@ -19,7 +35,13 @@ const Home = () => {
       </p>
 
       <h2>Upcoming Events</h2>
-      <section id="events-section"></section>
+      <section id="events-section">
+        <Events
+          key={events.name}
+          name={events.name}
+          description={events.description}
+        />
+      </section>
 
       <p>
           <a href="https://www.paypal.com/donate?token=2yl_zKnNYeQZnzpFdqPySB7i_5AMDG8Y_68jQ6RHdYiKlHOePaS967EqwSywiUHiwtVomUS17uKuCrMD&locale.x=US" target="_blank" rel="noreferrer noopener">

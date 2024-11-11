@@ -1,29 +1,36 @@
-import "../css/Moda;.css";
+import "../css/Modal.css";
+import React, {useState} from 'react';
 
 
-const Modal = () => {
+const Modal = ({ show, onClose }) => {
+  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   return (
-    <div id="myModal" class="modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
+    <> 
+    <div id="myModal" class="modal">
+      <div className="modal-content">
+        <div className="modal-header">
+          <span className="close" onClick={closeModal}>&times;</span>
           <h2>Got Questions?</h2>
           <h4>Ask the team!</h4>
         </div>
-        <div class="modal-body">
+        <div className="modal-body">
           <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="f866c890-ef35-4582-8524-28b64aa47cba"/>
             <p>
-              <label for="name">Name:</label>
+              <label htmlFor="name">Name:</label>
               <input id="name" type="text" placeholder="first and last" name="name"required/>
             </p>
             <p>
-              <label for="email">Email:</label>
+              <label htmlFor="email">Email:</label>
               <input id="email" type="email" name="email" required/>
             </p>
             <p>
-              <label for="message">Message:</label>
+              <label htmlFor="message">Message:</label>
               <textarea id="message" name="message" required></textarea>
             </p>
             <input type="hidden" name="redirect" value="https://web3forms.com/success"/>
@@ -36,6 +43,7 @@ const Modal = () => {
         </div>
       </div>
     </div>
+  </>
   );
 };
 

@@ -2,6 +2,7 @@ import {Outlet, /*Link*/} from "react-router-dom";
 //import {useState} from "react";
 import Header from "./components/header";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 import "./css/Layout.css";
 
 const Layout = () => {
@@ -10,6 +11,8 @@ const Layout = () => {
       <div id="content">
         <Header />
       
+        <Modal />
+
         <Outlet />
 
         <Footer />

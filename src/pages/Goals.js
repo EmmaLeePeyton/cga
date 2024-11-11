@@ -2,7 +2,7 @@ import "../css/Who.css";
 
 const Sc = () => {
   return (
-    <section class="two">
+    <section className="two">
       <h1>Goals & Objectives</h1>
       <h3>ESTABLISH AN INTERNATIONAL MINISTRY THAT ENCOURAGES EVANGELISM AND CHRISTIAN FELLOWSHIP</h3>
       <p>Bring together, under an "umbrella", the many and varied "pockets" of golf mini-ministries that are spread around the world. To unite them in a common bond and common purpose in which to serve our Lord. "The pleasantness of one's friend springs from his earnest counsel. As iron sharpens iron, so one man sharpens another." (Proverbs 27:9, 17). Also, to promote and foster Christian fellowship, fun and common interests among Christians while providing the means and natural opportunities for evangelizing and witnessing for the cause of our Lord Jesus Christ</p>

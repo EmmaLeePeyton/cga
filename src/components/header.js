@@ -1,4 +1,5 @@
 import "../css/Header.css";
+import Modal from './Modal';
 import user from '../images/user.png';
 import banner from '../images/CGA Banner.png';
 import {useState} from "react";
@@ -21,12 +22,14 @@ const Header = () => {
 
   // sub nav
   const [toggleWhoOpen, settoggleWhoOpen] = useState(false);
-  const toggleWho = () => {
+  const toggleWho = (e) => {
+    e.preventDefault();
     settoggleWhoOpen(!toggleWhoOpen);
     console.log("toggleNav: " + toggleWhoOpen);
   }
   const [toggleChaptersOpen, settoggleChaptersOpen] = useState(false);
-  const toggleChapters = () => {
+  const toggleChapters = (e) => {
+    e.preventDefault();
     settoggleChaptersOpen(!toggleChaptersOpen);
     console.log("toggleNav: " + toggleChaptersOpen);
   }
@@ -39,21 +42,7 @@ const Header = () => {
   }
 
 /*
-  // toggle submenues  
-  // who menue
-  document.getElementById("who").onclick = (event) => {
-    console.log("who menue");
-    event.preventDefault();
-    document.getElementById("who-nav").classList.toggle("hidden");
-  };
-
-  document.getElementById("chapters").onclick = (event) => {
-    console.log("chapters menue");
-    event.preventDefault();
-    document.getElementById("chapters-nav").classList.toggle("hidden");
-  };
-
-  // toggle user menu  
+   // toggle user menu  
   document.getElementById("user-img").onclick = (event) => {
     console.log("user menue");
     event.preventDefault();
@@ -115,9 +104,9 @@ const Header = () => {
           <li><Link to="contactus">Contact Us</Link></li>
         </ul>
       </nav>
-    </header>
 
-    
+      <Modal show={questionModalOpen} onClose={questionModal} />
+    </header>
   );
 };
 

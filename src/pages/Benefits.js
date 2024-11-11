@@ -2,7 +2,7 @@ import "../css/Who.css";
 
 const Benefits = () => {
   return (
-    <section class="two">
+    <section className="two">
       <h1>CGA Member Benefits</h1>
       <h3>MAKING A DIFFERENCE</h3>
       <p>We believe that one of the most valuable benefits of membership in the Christian Golfers' Association is the opportunity that is available to share Christ with others out on the golf course. Your membership and membership credentials provide a natural invitation and opportunity to present and discuss Christ while playing golf with friends and others with whom we are paired from time to time. YOU can make a difference!</p>

@@ -2,7 +2,7 @@ import "../css/Who.css";
 
 const Sc = () => {
   return (
-    <section class="two">
+    <section className="two">
       <h1>Mission</h1>
       <p>The Christian Golfers' Association is committed to utilize the game of golf as a platform for evangelizing, witnessing and sharing the gospel of Jesus Christ with other golfing friends and acquaintances in a relaxed, comfortable environment for both the member and the recipient while promoting fellowship among Christian golfing enthusiasts.
       </p>

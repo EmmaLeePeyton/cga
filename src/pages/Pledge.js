@@ -4,9 +4,9 @@ import donate from '../images/btn_donateCC_LG.gif';
 
 const Sc = () => {
   return (
-    <section class="two">
+    <section className="two">
       <h1>Join The Team</h1>
-      <img class="content-img pledge-img" src={people} alt="golf course over water"/>
+      <img className="content-img pledge-img" src={people} alt="golf course over water"/>
       <h3>MEMBER'S PLEDGE FORM</h3>
       <p>
         YES! I want to be on the TEAM! I want to support the unique ministry of the Christian 
