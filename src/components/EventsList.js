@@ -17,6 +17,8 @@ const EventsList = () => {
     })();
   }, []);
 
+  
+
   return(
     <>
       {event.map((eventsevents,index)=>(

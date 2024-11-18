@@ -13,9 +13,14 @@ const Home = () => {
   const openEventsModal = () => {
     setEventsModal(true);
   }
-  const closeEventsnModal = () => {
+  const closeEventsModal = () => {
     setEventsModal(false);
   }
+
+  const [events, setEvents] = useState([]);
+  const addEvent = (event) => {
+    setEvents((events) => [...events, event]);
+  };
 
   return (
     <div id="main-content">
@@ -34,11 +39,11 @@ const Home = () => {
       <h2>Upcoming Events</h2>
       <button id="add-event" onClick={openEventsModal}>+</button>
       {eventsModalShow ? (
-        <EventAddModal closeDialog={closeEventsnModal}/>
+        <EventAddModal closeDialog={closeEventsModal} addEvent={addEvent}/>
         ) :
         ("")
       }
-      <EventsList/>
+      <EventsList events={events}/>
 
       <p>
           <a href="https://www.paypal.com/donate?token=2yl_zKnNYeQZnzpFdqPySB7i_5AMDG8Y_68jQ6RHdYiKlHOePaS967EqwSywiUHiwtVomUS17uKuCrMD&locale.x=US" target="_blank" rel="noreferrer noopener">

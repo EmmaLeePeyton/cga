@@ -1,10 +1,39 @@
 import "../css/Modal.css";
-import React from 'react';
+import React, {useState} from 'react';
 
 
 const EventAddModal = (props) => {
-  const onSubmit = () => {};
-  
+  const [inputs, setInputs] = useState({});
+  const [result, setResult] = useState("");
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+
+  const onSubmit = async(event) => {
+    event.preventDefault();
+    setResult("Sending...");
+
+    const formData = new FormData(event.target);
+
+    const response = await fetch("http://localhost:3001/api/events", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.status === 200) {
+      setResult("Event Successfully Added");
+      event.target.reset(); //reset your form fields
+      props.addEvent(await response.json());
+      props.closeDialog();
+    } else {
+      console.log("Error adding event", response);
+      setResult("Error adding Event");
+    }
+  };
+
   return (
     <div id="event-modal" className="modal">
       <div className="modal-content">
@@ -15,17 +44,31 @@ const EventAddModal = (props) => {
         <div className="modal-body">
         <form id="event-form" onSubmit={onSubmit}>
           <p>
-            <label for="name">Name:</label>
-            <input id="name" type="text" name="name" required/>
+            <label htmlFor="name">Event Name:</label>
+            <input 
+              id="name" 
+              type="text" 
+              name="name" 
+              value={inputs?.name || ""} 
+              onChange={handleChange}
+              required
+            />
           </p>
           <p>
-            <label for="message">Description:</label>
-            <textarea id="message" name="description" required></textarea>
+            <label htmlFor="message">Description of event:</label>
+            <textarea 
+              id="message" 
+              name="description" 
+              value={inputs?.description || ""}
+              onChange={handleChange}
+              required
+            />
           </p>
 
           <p><button type="submit">Submit Event</button></p>
-          <p id="result"></p>
+          
           </form>
+          <p id="result">{result}</p>
         </div>
       </div>
     </div>
