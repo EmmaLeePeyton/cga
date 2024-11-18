@@ -1,10 +1,10 @@
 import "../css/Header.css";
-import Modal from './Modal';
 import user from '../images/user.png';
 import banner from '../images/CGA Banner.png';
 import {useState} from "react";
 import {Link} from "react-router-dom";
 
+import QuestionModal from "./QuestionModal";
 
 const Header = () => {
   // user button
@@ -35,20 +35,14 @@ const Header = () => {
   }
 
   // modal --> working on figuring out 
-  const [questionModalOpen, setQuestionModalOpen] = useState(false);
-  const questionModal = () => {
-    setQuestionModalOpen(!questionModalOpen);
-    console.log("toggleModal: " + questionModalOpen);
+  const [questionModalShow, setQuestionModal] = useState(false);
+  const openQuestionModal = () => {
+    setQuestionModal(true);
+  }
+  const closeQuestionModal = () => {
+    setQuestionModal(false);
   }
 
-/*
-   // toggle user menu  
-  document.getElementById("user-img").onclick = (event) => {
-    console.log("user menue");
-    event.preventDefault();
-    document.getElementById("user-menu").classList.toggle("hidden");
-  };
-*/
   return (
     <header>
       <div id="header-top">
@@ -60,7 +54,7 @@ const Header = () => {
           <section id="user-menu-arrow"></section>
           <section id= "user-menu-items">
             <ul>
-              <li onClick={questionModal} id="question">Got Questions?</li>
+              <li onClick={openQuestionModal} id="question">Got Questions?</li>
             </ul>
           </section>
         </div>
@@ -105,7 +99,11 @@ const Header = () => {
         </ul>
       </nav>
 
-      <Modal show={questionModalOpen} onClose={questionModal} />
+      {questionModalShow ? (
+        <QuestionModal closeDialog={closeQuestionModal}/>
+        ) :
+        ("")
+      }
     </header>
   );
 };

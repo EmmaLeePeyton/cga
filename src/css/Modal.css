@@ -111,3 +111,11 @@ form button:hover {
 .modal.hidden {
   display: none;
 }
+
+#question-modal {
+  display: block;
+}
+
+#event-modal {
+  display: block;
+}
