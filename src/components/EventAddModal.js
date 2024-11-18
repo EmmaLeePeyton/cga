@@ -18,7 +18,7 @@ const EventAddModal = (props) => {
 
     const formData = new FormData(event.target);
 
-    const response = await fetch("http://localhost:3001/api/events", {
+    const response = await fetch("https://cga-backend.onrender.com/api/events", {
       method: "POST",
       body: formData,
     });
