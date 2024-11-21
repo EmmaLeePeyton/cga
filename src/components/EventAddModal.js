@@ -17,11 +17,13 @@ const EventAddModal = (props) => {
     setResult("Sending...");
 
     const formData = new FormData(event.target);
+    console.log(...formData);
 
-    const response = await fetch("https://cga-backend.onrender.com/api/events", {
+    const response = await fetch("http://localhost:3001/api/events", {
       method: "POST",
       body: formData,
     });
+
 
     if (response.status === 200) {
       setResult("Event Successfully Added");
@@ -29,7 +31,7 @@ const EventAddModal = (props) => {
       props.addEvent(await response.json());
       props.closeDialog();
     } else {
-      console.log("Error adding event", response);
+      console.log("response.json(): " + response.json());
       setResult("Error adding Event");
     }
   };

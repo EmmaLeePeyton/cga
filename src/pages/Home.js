@@ -3,24 +3,8 @@ import courseOne from '../images/course1.jpg';
 import donate from '../images/btn_donateCC_LG.gif';
 import bottomGif from '../images/bottom-img.gif';
 import EventsList from "../components/EventsList";
-import React, {useState} from 'react';
-
-import EventAddModal from "../components/EventAddModal";
 
 const Home = () => {
-
-  const [eventsModalShow, setEventsModal] = useState(false);
-  const openEventsModal = () => {
-    setEventsModal(true);
-  }
-  const closeEventsModal = () => {
-    setEventsModal(false);
-  }
-
-  const [events, setEvents] = useState([]);
-  const addEvent = (event) => {
-    setEvents((events) => [...events, event]);
-  };
 
   return (
     <div id="main-content">
@@ -37,13 +21,7 @@ const Home = () => {
       </p>
 
       <h2>Upcoming Events</h2>
-      <button id="add-event" onClick={openEventsModal}>+</button>
-      {eventsModalShow ? (
-        <EventAddModal closeDialog={closeEventsModal} addEvent={addEvent}/>
-        ) :
-        ("")
-      }
-      <EventsList events={events}/>
+      <EventsList/>
 
       <p>
           <a href="https://www.paypal.com/donate?token=2yl_zKnNYeQZnzpFdqPySB7i_5AMDG8Y_68jQ6RHdYiKlHOePaS967EqwSywiUHiwtVomUS17uKuCrMD&locale.x=US" target="_blank" rel="noreferrer noopener">

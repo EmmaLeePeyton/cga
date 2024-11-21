@@ -74,7 +74,7 @@ const Header = () => {
           <li><Link to="/">Home</Link></li>
           <li>
             <a onClick={toggleWho} id="who" href="#">Who Are We?</a>
-            <ul id="who-nav" class={toggleWhoOpen?"sub-nav":"hidden"}>
+            <ul id="who-nav" className={toggleWhoOpen?"sub-nav":"hidden"}>
               <li><Link to="/pledge">Pledge</Link></li>
               <li><Link to="/mission">Mission</Link></li>
               <li><Link to="/history">History</Link></li>
@@ -84,7 +84,7 @@ const Header = () => {
           </li>
           <li>
             <a onClick={toggleChapters} id="chapters" href="#">Chapters</a>
-            <ul id="chapters-nav" class={toggleChaptersOpen?"sub-nav":"hidden"}>
+            <ul id="chapters-nav" className={toggleChaptersOpen?"sub-nav":"hidden"}>
               <li><Link to="/ar">AR</Link></li>
               <li><Link to="/fl">FL</Link></li>
               <li><Link to="/la">LA</Link></li>
