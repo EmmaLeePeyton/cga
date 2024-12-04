@@ -86,14 +86,6 @@ const EventsList = () => {
     ) : (
       ""
     )}
-      <section id="change-buttons">
-            <a href="#" onClick={openEditEvent}>
-              &#9998;
-            </a>
-            <a href="#" onClick={openDeleteEvent}>
-              &#x2715;
-            </a>
-      </section>
       {event.map((eventsevents,index)=>(
         <Events
           key={index}
