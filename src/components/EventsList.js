@@ -17,8 +17,8 @@ const EventsList = () => {
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-        "http://localhost:3001/api/events"
-        //"https://cga-backend.onrender.com/api/events"
+        //"http://localhost:3001/api/events"
+        "https://cga-backend.onrender.com/api/events"
       );
       setEvent(response.data);
     })();

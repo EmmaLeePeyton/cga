@@ -22,14 +22,14 @@ const EditEvent = (props) => {
     const formData = new FormData(event.target);
     console.log("before response");
     console.log(...formData);
-    const response = await fetch(`http://localhost:3001/api/events/${props._id}`,{
-      method:"PUT",
-      body:formData
-    });
-    /* const response = await fetch(`https://cga-backend.onrender.com/api/events/${props._id}`,{
+    /* const response = await fetch(`http://localhost:3001/api/events/${props._id}`,{
       method:"PUT",
       body:formData
     }); */
+    const response = await fetch(`https://cga-backend.onrender.com/api/events/${props._id}`,{
+      method:"PUT",
+      body:formData
+    });
     console.log("after response");
     console.log(response);
 

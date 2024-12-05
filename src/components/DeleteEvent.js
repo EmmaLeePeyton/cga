@@ -5,12 +5,12 @@ const DeleteEvent = (props) => {
   const [result, setResult] = useState("");
 
   const deleteEvent = async() => {
-    const response = await fetch(`http://localhost:3001/api/events/${props._id}`,{
+    /* const response = await fetch(`http://localhost:3001/api/events/${props._id}`,{
       method:"DELETE"
-     });
-   /* const response = await fetch(`https://cga-backend.onrender.com/api/events/${props._id}`,{
+    }); */
+   const response = await fetch(`https://cga-backend.onrender.com/api/events/${props._id}`,{
     method:"DELETE"
-   }); */
+   });
 
    if(response.status === 200){
     setResult("Event successfully delete");
