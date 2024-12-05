@@ -20,16 +20,23 @@ const EditEvent = (props) => {
     setResult("Sending....");
 
     const formData = new FormData(event.target);
+    console.log("before response");
     console.log(...formData);
-    const response = await fetch(`https://cga-backend.onrender.com//events/${props._id}`,{
+    const response = await fetch(`http://localhost:3001/api/events/${props._id}`,{
       method:"PUT",
       body:formData
     });
+    /* const response = await fetch(`https://cga-backend.onrender.com/api/events/${props._id}`,{
+      method:"PUT",
+      body:formData
+    }); */
+    console.log("after response");
+    console.log(response);
 
     if(response.status === 200){
       setResult("Event successfully updated");
       event.target.reset();
-      props.updateEvent(await response.json());
+      props.editEvent(await response.json());
       props.closeDialog();
     } else {
       setResult("Error edditing your event.");

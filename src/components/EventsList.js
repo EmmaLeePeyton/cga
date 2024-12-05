@@ -17,8 +17,8 @@ const EventsList = () => {
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-        //"http://localhost:3001/api/events"
-        "https://cga-backend.onrender.com/api/events"
+        "http://localhost:3001/api/events"
+        //"https://cga-backend.onrender.com/api/events"
       );
       setEvent(response.data);
     })();
@@ -38,6 +38,9 @@ const EventsList = () => {
   };
 
   const addEvent = (event) => {
+    setEvent((events) => [...events, event]);
+  };
+  const editEvent = (event) => {
     setEvent((events) => [...events, event]);
   };
   const closeEditEvent = () => {
@@ -67,6 +70,7 @@ const EventsList = () => {
       {showDeleteEvent ? (
       <DeleteEvent
         closeDialog={closeDeleteEvent}
+        editEvent={editEvent}
         hideEvent = {hideEvent}
         _id={Events._id}
         name={Events.name}
@@ -91,6 +95,7 @@ const EventsList = () => {
           key={index}
           name={eventsevents.name}
           description={eventsevents.description}
+          _id={eventsevents._id}
         />
       ))}
     </>
